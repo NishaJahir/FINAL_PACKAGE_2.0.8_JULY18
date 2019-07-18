@@ -25,7 +25,7 @@
   "serviceProvider": "Novalnet\\Providers\\NovalnetServiceProvider",
   "runOnBuild": [
     "Novalnet\\Migrations\\UpdatePaymentMethodName",
-    "Novalnet\\Migrations\\UpdateTransactionTable"
+    "Novalnet\\Migrations\\UpdateTransactionTable1"
   ],
   "dataProviders": [
     {
