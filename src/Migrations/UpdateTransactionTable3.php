@@ -31,7 +31,7 @@ class UpdateTransactionTable3
      *
      * @param Migrate $migrate
      */
-    public function run(Migrate $migrate)
+    public function run(Migrate $migrate, DataBase $dataBase)
     {
            $saved_details = $dataBase->query(TransactionLog::class)->where('id', '=', '1')->get();
            $this->getLogger(__METHOD__)->error('BB', $saved_details);
