@@ -34,7 +34,7 @@ class UpdateTransactionTable4
            try {
               $migrate->updateTable(TransactionLog::class);
               $this->getLogger(__METHOD__)->error('NN', 'update');
-           } catch {
+           } catch (\Exception $e) {
               $migrate->createTable(TransactionLog::class);
                $this->getLogger(__METHOD__)->error('RR', 'create');
            }  
