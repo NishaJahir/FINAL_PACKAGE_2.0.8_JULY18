@@ -21,7 +21,7 @@ use Plenty\Plugin\Log\Loggable;
 /**
  * Class CreateTransactionTable
  */
-class UpdateTransactionTable4
+class UpdateTransactionTable
 {
     use Loggable;
     /**
