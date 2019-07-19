@@ -17,11 +17,13 @@ namespace Novalnet\Migrations;
 
 use Novalnet\Models\TransactionLog;
 use Plenty\Modules\Plugin\DataBase\Contracts\Migrate;
+use Plenty\Modules\Plugin\DataBase\Contracts\DataBase;
+use Plenty\Modules\Plugin\DataBase\Contracts\Query;
 use Plenty\Plugin\Log\Loggable;
 /**
  * Class CreateTransactionTable
  */
-class UpdateTransactionTable
+class UpdateTransactionTable1
 {
     use Loggable;
     /**
@@ -29,11 +31,12 @@ class UpdateTransactionTable
      *
      * @param Migrate $migrate
      */
-    public function run(Migrate $migrate)
+    public function run(Migrate $migrate, DataBase $database)
     {
            try {
+              $order = $database->query(TransactionLog::class)->where('id', '=', '1')->get();
               $migrate->updateTable(TransactionLog::class);
-              $this->getLogger(__METHOD__)->error('NN', 'update');
+              $this->getLogger(__METHOD__)->error('update', $order);
            } catch (\Exception $e) {
               $migrate->createTable(TransactionLog::class);
                $this->getLogger(__METHOD__)->error('RR', 'create');
