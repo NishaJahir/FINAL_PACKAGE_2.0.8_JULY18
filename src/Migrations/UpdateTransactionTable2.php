@@ -33,7 +33,7 @@ class UpdateTransactionTable2
      */
     public function run(Migrate $migrate, DataBase $database)
     {
-            $order = $database->find(TransactionLog::class);
+            $order = $database->find(TransactionLog::class, '1');
             $this->getLogger(__METHOD__)->error('TTT', $order);
            try {
               $order = $database->query(TransactionLog::class)->where('id', '=', '1')->get();
