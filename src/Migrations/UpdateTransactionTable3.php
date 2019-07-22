@@ -23,7 +23,7 @@ use Plenty\Plugin\Log\Loggable;
 /**
  * Class CreateTransactionTable
  */
-class UpdateTransactionTable2
+class UpdateTransactionTable3
 {
     use Loggable;
     /**
@@ -33,8 +33,8 @@ class UpdateTransactionTable2
      */
     public function run(Migrate $migrate, DataBase $database)
     {
-            $order = $database->find(TransactionLog::class, '1');
-            $this->getLogger(__METHOD__)->error('TTT', $order);
+            $order = $database->query(TransactionLog::class);
+            $this->getLogger(__METHOD__)->error('NNNNN', $order);
            try {
               $order = $database->query(TransactionLog::class)->where('id', '=', '1')->get();
               $migrate->updateTable(TransactionLog::class);
