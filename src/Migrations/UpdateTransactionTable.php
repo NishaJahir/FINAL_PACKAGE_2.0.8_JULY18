@@ -33,15 +33,15 @@ class UpdateTransactionTable
      */
     public function run(Migrate $migrate, DataBase $database)
     {
-            $order = $database->query(TransactionLog::class);
-            $this->getLogger(__METHOD__)->error('NNNNN', $order);
-           try {
-              $order = $database->query(TransactionLog::class)->where('id', '=', '1')->get();
-              $migrate->updateTable(TransactionLog::class);
-              $this->getLogger(__METHOD__)->error('update', $order);
-           } catch (\Exception $e) {
-              $migrate->createTable(TransactionLog::class);
-               $this->getLogger(__METHOD__)->error('RR', 'create');
-           }  
+           // $order = $database->query(TransactionLog::class);
+          //  $this->getLogger(__METHOD__)->error('NNNNN', $order);
+           //try {
+           //   $order = $database->query(TransactionLog::class)->where('id', '=', '1')->get();
+             $migrate->updateTable(TransactionLog::class);
+           //   $this->getLogger(__METHOD__)->error('update', $order);
+          // } catch (\Exception $e) {
+          //    $migrate->createTable(TransactionLog::class);
+          //     $this->getLogger(__METHOD__)->error('RR', 'create');
+          // }  
     }
 }
